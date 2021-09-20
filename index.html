@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Agreement</title>
+  <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/dd9a97d0e2.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<head><base href="https://www.vantora.com/Paintball/wdpa/waiver/">
+        <title>WD Adventure Park Online Waiver</title>
+        <meta http-equiv="cache-control" content="max-age=0">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="0">
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<link rel="apple-touch-icon" sizes="180x180" href="https://vantora.azureedge.net/assets/icons/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="https://vantora.azureedge.net/assets/icons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="https://vantora.azureedge.net/assets/icons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="https://vantora.azureedge.net/assets/icons/manifest.json">
+		<meta name="theme-color" content="#ffffff">
+
+        <link type="text/css" rel="stylesheet" href="../content/css/jquery-ui.min.css">
+        <link type="text/css" rel="stylesheet" href="../content/css/jquery-ui.structure.min.css">
+        <link type="text/css" rel="stylesheet" href="../content/css/jquery-ui.theme.min.css">
+        <link type="text/css" rel="stylesheet" href="../content/css/jquery.mobile-1.1.0.css">
+        <link type="text/css" rel="Stylesheet" href="../content/css/jquery.fancybox-1.3.4.css">
+        <link type="text/css" rel="stylesheet" href="../content/css/jquery.powertip-light.css">
+        <link type="text/css" rel="stylesheet" href="../content/css/waiver.css?20210920024445">
+        <link type="text/css" rel="Stylesheet" href="../content/css/eventregistration.css?20210920024445">
+
+        <script type="text/javascript" src="../content/js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="../content/js/jquery/plugins/ui/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../content/js/jquery.mobile-1.1.0.min.js"></script>
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="../content/js/flashcanvas.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/translate_static/js/element/main.js"></script>
+        <script type="text/javascript" src="../content/js/jSignature.min.js"></script>
+        <script type="text/javascript" src="../content/js/jquery.fancybox-1.3.4.pack.js"></script>
+        <script type="text/javascript" src="../content/js/jquery.powertip.min.js"></script>
+        <script type="text/javascript" src="../content/js/json2.min.js"></script>
+        <script type="text/javascript" src="../content/js/jquery.urlencode.js"></script>
+        <script type="text/javascript" src="../content/js/searchPlayers.js?20210920024445"></script>
+        <script type="text/javascript" src="../content/js/waivernavigation.js?20210920024445"></script>
+        <script type="text/javascript" src="../content/js/waivervalidation.js?20210920024445"></script>
+        <script type="text/javascript" src="../content/js/string.prototypes.js?20210920024445"></script>
+        <script type="text/javascript" src="../content/js/misc/momentjs/moment.min.js"></script>
+        <script type="text/javascript" src="../content/js/common.js?20210920024445"></script>
+        <script type="text/javascript">
+            const APIURL = "https://api.vantora.com";
+            const MY_SITE_GUID = "{8AE9497C-3DC3-422C-8E66-78BB4C5CD57C}";
+            const DATE_API_FORMAT    = 'MM-DD-YYYY';
+            const DATE_CLIENT_FORMAT = 'M/D/YYYY';
+            var debug = false;
+            var countrycode = "US";
+            var siteState = "TX";
+
+            var isAdultOnly = false;
+            var isChildOnly = false;
+            var isphonerequired = "true";
+            var isemailrequired = "true";
+            var isaddressrequired = "true";
+            var iscityrequired = "true";
+            var isParentDobRequired = "true";
+            var isZipRequired = "true";
+
+            var showParentDob = "true";
+            var showphonefield = "true";
+            var showemailfield = "true";
+            var showaddressfield = "true";
+            var showcityfield = "true";
+            var showstatefield = "true";
+            var showZip = "true";
+            var showlookup = true;
+
+            var jsShowTimes = false;
+            var jsShowDates = true;
+
+            $(document).ready(function () {
+                // Disable form submit, this is done through JS
+                $("#btnCheckInFinish").click(function(e) { e.preventDefault() });
+
+                $(".tooltip").powerTip({ mouseOnToPopup: true, placement: 'n', smartPlacement: true });
+                initWizard();
+
+                var today = new Date;
+                var formattedDate = moment().format(DATE_CLIENT_FORMAT);
+
+
+                loadOpenCalendar(formattedDate);
+
+            });
+
+
+
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+            }
+
+
+            window.onbeforeunload = function () { resetForm(); }
+
+            $(document).keypress(
+                function(event){
+                    if (event.which == '13') {
+                        event.preventDefault();
+                    }
+            });
+            var testtime = new Date
+
+            function resetForm() {
+                if (showlookup) {
+                    $("#txtNewPlayerWaiver").val("");
+                }
+
+                $("#txtPlayerId").val("");
+                $("#txtSelfFirstName").val("");
+                $("#txtSelfLastName").val("");
+                if(countrycode == "NZ" || countrycode == "AU"){
+                    $("#txtSelfDOB").attr("placeholder", "dd/mm/yyyy");
+                    $("#txtMinor1DOB").attr("placeholder", "dd/mm/yyyy");
+                    $("#txtMinor2DOB").attr("placeholder", "dd/mm/yyyy");
+                    $("#txtMinor3DOB").attr("placeholder", "dd/mm/yyyy");
+                    $("#txtMinor4DOB").attr("placeholder", "dd/mm/yyyy");
+                    $("#txtMinor5DOB").attr("placeholder", "dd/mm/yyyy");
+                    $("#txtMinor6DOB").attr("placeholder", "dd/mm/yyyy");
+                    $("#txtSearchDOB").attr("placeholder", "dd/mm/yyyy");
+                }else{
+                    $("#txtSelfDOB").attr("placeholder", "mm/dd/yyyy");
+                    $("#txtMinor1DOB").attr("placeholder", "mm/dd/yyyy");
+                    $("#txtMinor2DOB").attr("placeholder", "mm/dd/yyyy");
+                    $("#txtMinor3DOB").attr("placeholder", "mm/dd/yyyy");
+                    $("#txtMinor4DOB").attr("placeholder", "mm/dd/yyyy");
+                    $("#txtMinor5DOB").attr("placeholder", "mm/dd/yyyy");
+                    $("#txtMinor6DOB").attr("placeholder", "mm/dd/yyyy");
+                    $("#txtSearchDOB").attr("placeholder", "mm/dd/yyyy");
+                }
+                $("#txtFormattedAdultDOB").val("");
+                $("#txtSelfPhoneNumber").val("");
+                $("#txtSelfEmailAddress").val("");
+                $("#txtSelfConfirmEmail").val("");
+                $("#txtSelfAddress").val("");
+                $("#txtSelfCity").val("");
+                $("#txtSelfZipCode").val("");
+                $("#txtMinor1FirstName").val("");
+                $("#txtMinor1LastName").val("");
+                $("#txtFormattedMinor1DOB").val("");
+                $("#txtMinor2FirstName").val("");
+                $("#txtMinor2LastName").val("");
+                $("#txtFormattedMinor2DOB").val("");
+                $("#txtMinor3FirstName").val("");
+                $("#txtMinor3LastName").val("");
+                $("#txtFormattedMinor3DOB").val("");
+                $("#txtMinor4FirstName").val("");
+                $("#txtMinor4LastName").val("");
+                $("#txtFormattedMinor4DOB").val("");
+                $("#txtMinor5FirstName").val("");
+                $("#txtMinor5LastName").val("");
+                $("#txtFormattedMinor5DOB").val("");
+                $("#txtMinor6FirstName").val("");
+                $("#txtMinor6LastName").val("");
+                $("#txtFormattedMinor6DOB").val("");
+                $("#ddlMonth").val("").selectmenu("refresh");
+                $("#txtPlayDate").val("");
+                previousSelectedPlaydate = "";
+                $("#ddlGrouped").val("").selectmenu("refresh");
+                $("#ddlEventGroup").val("").selectmenu("refresh");
+                $("#btnFinish").removeAttr("disabled");
+                $("#txtSearchFirstName").val("");
+                $("#txtSearchLastName").val("");
+                $("#txtSearchMoreEmailAddress").val("");
+                $("#txtSearchMorePhone").val("");
+                $("#txtSearchMoreAddress").val("");
+                $("#txtSearchMoreZipCode").val("");
+                $("#txtFormattedSearchDOB").val("");
+                $("#txtCheckingIn").val("");
+                $("#txtCheckInPID").val("");
+
+                if (jsShowDates){
+                    $("#txtPlayDate").val("");
+                }else{
+                    $("#txtPlayDate").val("9/20/2021");
+                }
+
+                if (jsShowTimes){
+                    $("#txtPlayTime").val("");
+                }else{
+                    $("#txtPlayTime").val("12:00 PM");
+                }
+
+                //reset custom fields, if any
+                var values = jQuery("#myForm").serializeArray();
+                /* Because serializeArray() ignores unset checkboxes and radio buttons: */
+                    values = values.concat(
+                            jQuery('#myForm input[type=checkbox]:not(:checked)').map(
+                                    function () {
+                                        return { "name": this.name, "value": this.value }
+                                    }).get()
+                    );
+
+                for (var i=0;i<values.length;i++){
+                    if (values[i].name.substr(0, 6) == "Custom") {
+                        switch (document.getElementById(values[i].name).type.toUpperCase()) {
+                            case 'SELECT':
+                                $("#" + values[i].name).val("").selectmenu("refresh");
+                                break;
+                            case 'CHECKBOX':
+                                $("#" + values[i].name).attr('checked', false);
+                                break;
+                            default:
+                                $("#" + values[i].name).val("");
+                        }
+                    }
+                }
+
+                if (debug){
+                    var testtime = new Date();
+                    $("#txtSelfFirstName").val("Robert");
+                    $("#txtSelfLastName").val("Grobbs");
+                    $("#txtSelfDOB").val("10/10/1969");
+                    $("#txtSelfZipCode").val("76051");
+                }
+            }
+
+            var previousSelectedPlaydate = "";
+
+            function resetGroupNTimes(){
+                if(previousSelectedPlaydate != $("#txtPlayDate").val()){
+                    previousSelectedPlaydate = $("#txtPlayDate").val();
+                    $("#lblStartTime").html("No time selected");
+
+                    if (jsShowTimes){
+                        $("#txtPlayTime").val("");
+                    }else{
+                        $("#txtPlayTime").val("12:00 PM");
+                    }
+
+                    $("#valPlayTimeRequired").css("display", "none");
+                    $("#timeButtons").css("display", "none");
+                    $("#ddlGrouped").val("").selectmenu("refresh");
+                    $("#divGroup").css('display', 'block');
+
+
+                        toggleGroupTime("");
+
+
+                }
+            }
+
+            function showAdditionalInfo(customField) {
+                $.fancybox({
+                    'content': $(customField).data("info"),
+                    'showCloseButton': true
+                });
+            }
+
+            function showPlayTimes() {
+                var localDateTime = new Date();
+                if (jsShowTimes){
+                    if (validateFormPlayDate()) {
+                        $.ajax({
+                            url: '../ajax/Waiver.asp?act=72&dt=' + $("#txtPlayDate").val() + '&ltm=' + (localDateTime.getMonth()+1) + '/' + localDateTime.getDate() + '/' + localDateTime.getFullYear() + ' ' + localDateTime.getHours() + ':' + localDateTime.getMinutes() + ':00',
+                            error: function () { alert("problems encountered \n Error Code: splytms"); },
+                            success: function (data) {
+                                $('#timeButtons').html(data);
+                                $('#timeButtons').trigger("create");
+                                $('#timeButtons').css("display", "block");
+                            }
+                        });
+                    }
+                }
+
+                return false;
+            }
+
+            function resizeFancyBox(){
+                $('#fancybox-content').height($('#fancybox-frame').contents().find('div.waiverSection').height() + 5);
+                $.fancybox.center();
+            }
+
+            function setStartTime(Time, Display) {
+                $("#lblStartTime").html(Display);
+                $("#txtPlayTime").val(Time);
+                $("#valPlayTimeRequired").css("display", "none");
+                $("#timeButtons").css("display", "none");
+
+                return false;
+            }
+
+
+        </script>
+    <script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/element/TE_20210503_00/e/js/element/element_main.js"></script></head>
+<body>
+
+  <section class="topContainer">
+    <h1>Lease Application</h1>
+  </section>
+
+  <section class="secondContainer">
+    <h3>Tenant:</h3>
+    <h4>Dante Anaya</h4>
+
+  </section>
+
+  <section class="formContainer">
+    <h4>Applicant Information</h4>
+    <div class="input-group mb-4">
+      <span class="input-group-text titleBackground" id="basic-addon1">Name</span>
+      <input type="text" class="form-control" placeholder="John Doe" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group ">
+      <span class="input-group-text titleBackground" id="basic-addon1">Month</span>
+      <span class="input-group-text titleBackground" id="basic-addon1">Day</span>
+      <span class="input-group-text titleBackground" id="basic-addon1">Year</span>
+
+    </div>
+    <div class="input-group mb-4">
+      <input type="number" class="form-control textBackground" placeholder="MM" aria-label="Username" aria-describedby="basic-addon1">
+      <input type="number" class="form-control textBackground" placeholder="DD" aria-label="Username" aria-describedby="basic-addon1">
+      <input type="number" class="form-control textBackground" placeholder="XXXX" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-4">
+      <span class="input-group-text titleBackground" id="basic-addon1"><i class="fas fa-phone"></i></span>
+      <input type="number" class="form-control" placeholder="(XXX)-XXX-XXXX" aria-label="Username" aria-describedby="basic-addon1">
+
+    </div>
+  <h4>Address</h4>
+
+
+    <div class="input-group mb-3">
+    <label for="basic-url" class="form-label">Street</label>
+    <input type="text" class="form-control" placeholder="1234 Arial Dr" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+
+    <div class="input-group mb-3">
+      <label for="basic-url" class="form-label">City</label>
+    <input type="text" class="form-control" placeholder="New York" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+
+    <div class="input-group mb-3">
+        <label for="basic-url" class="form-label">Zip Code</label>
+    <input type="text" class="form-control" placeholder="New York" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group mb-3">
+
+    </div>
+
+    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+  <option selected>Rent or Own</option>
+  <option value="1">Rent</option>
+  <option value="2">Own</option>
+</select>
+
+<label for="basic-url" style="width: 100%;" class="form-label">Monthly Payment or rent</label>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">$</span>
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+  <span class="input-group-text">.00</span>
+</div>
+
+<div id="signature">
+</div>
+
+<script>
+$('#signature').jSignature();
+</script>
+
+<button id="button">Submit</button>
+Now to Save it in the database :
+
+ <script>
+ $('#button').click(function(){
+     var dataToBeSaved =  $("#signature").jSignature("getData","svgbase64");
+    // save this string to the database.
+  })
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+      <span class="input-group-text">@</span>
+      <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text">With textarea</span>
+      <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+  </section>
+
+
+
+
+
+</body>
+
+</html>

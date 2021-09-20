@@ -1,0 +1,45 @@
+.topContainer {
+  text-align: center;
+  padding: 10%;
+  background-color: #889EAF;
+}
+
+.secondContainer {
+  text-align: center;
+  padding: 5%;
+  background-color: #664E88;
+}
+
+.formContainer {
+  padding: 5%;
+  background-color: #316B83;
+}
+
+.titleBackground {
+  background-color: #8CA1A5;
+  width: 33%;
+  margin: 0;
+}
+
+.textBackground {
+  width: 33%;
+}
+
+.form-label {
+  width: 20%;
+  margin: 10px;
+}
+
+h1 {
+}
+
+
+h3 {
+  color: #fff;
+  font-size: 2rem;
+}
+
+h4 {
+  color: #fff;
+  padding-bottom: 20px;
+}
